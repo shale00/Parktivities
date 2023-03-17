@@ -13,7 +13,72 @@
     <title>Parktivities</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Parktivities</h1>
+    </header>
+
+    <aside id="right-side">
+      <div id="park-info">
+        <p>Explorer America's national parks. Discover our most treasured places, and start your travel planning here by finding your park.</p>
+      </div> 
+
+      <div id="local-storage-container">
+        <div id="input-box">
+            <input type="text" name="" id="">
+                <!-- User list inside of input box -->
+            <ul id="saved-parks"></ul>
+        </div>
+
+        <div id="clear-history">
+            <button id="btn-clear">Clear History</button>
+        </div>
+      </div> 
+    </aside>
+
+    <main id="">
+
+        <div id="search-container">
+            <div id="tabs">
+                <!-- check html structure for tabs -->
+                <button id="states">States</button>
+                <button id="activities">Activities</button>
+            </div>
+
+            <div id="state-search" class="display: block;">
+               <input placeholder="States" type="text" name="" id=""> 
+               <button id="btn-state-search">Search</button>
+            </div>
+
+            <div id="activity-search" style="display: ;">
+                <input placeholder="Activities" type="text" name="" id="">
+                <button id="btn-activity-search">Search</button> 
+            </div>
+        </div>
+
+        <div id="instructions" style="display: block;">
+            <p>Search by state or activity to view a list of national parks.</p>
+        </div>
+
+        <div id="search-results" style="display: ;">
+            <h2>Search Results</h2>
+            <ul id="nat-parks-list"></ul>
+        </div>
+
+        <div id="park-presentation" style="display: ;">
+            <!-- check if need div for image -->
+            <div id="image-api2">
+                <img src="" alt="">
+                <button id="btn-save-park">Save Park</button>
+            </div>
+
+            <div id="park-activities">
+                <!-- other info from api here -->
+                <h3>List of activities</h3>
+                <ul id="park-act-list"></ul>
+            </div>
+        </div>
+
+    </main>
 
 
 
