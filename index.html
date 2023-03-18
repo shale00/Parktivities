@@ -13,72 +13,91 @@
     <title>Parktivities</title>
 </head>
 <body>
-    <header>
-        <h1>Parktivities</h1>
+    <header class="hero is-warning box">
+        <div class="hero-body">
+            <p class="title has-text-centered">
+                Parktivities
+            </div>
     </header>
 
-    <aside id="right-side">
-      <div id="park-info">
-        <p>Explorer America's national parks. Discover our most treasured places, and start your travel planning here by finding your park.</p>
-      </div> 
+    <main class="columns container is-fluid">
 
-      <div id="local-storage-container">
-        <div id="input-box">
-            <input type="text" name="" id="">
-                <!-- User list inside of input box -->
-            <ul id="saved-parks"></ul>
-        </div>
+        <div class="column is-three-fourths box">
 
-        <div id="clear-history">
-            <button id="btn-clear">Clear History</button>
-        </div>
-      </div> 
-    </aside>
+            <div id="search-container">
+               <div class="tabs is-toggle is-centered is-boxed is-medium">
+                    <ul>
+                      <li class="is-active has-text-centered">
+                        <a id="stateBtn">
+                          <span class="icon"><i class="fas fa-flag-usa"></i></span>
+                          <span>States</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a id="activitiesBtn">
+                          <span class="icon"><i class="fas fa-hiking"></i></span>
+                          <span>Activities</span>
+                        </a>
+                      </li>
+                </div>      
 
-    <main id="">
+                <div id="state-search" class="display: block;">
+                <input placeholder="States" type="text" name="" id=""> 
+                <button id="btn-state-search">Search</button>
+                </div>
 
-        <div id="search-container">
-            <div id="tabs">
-                <!-- check html structure for tabs -->
-                <button id="states">States</button>
-                <button id="activities">Activities</button>
+                <div id="activity-search" style="display: ;">
+                    <input placeholder="Activities" type="text" name="" id="">
+                    <button id="btn-activity-search">Search</button> 
+                </div>
             </div>
 
-            <div id="state-search" class="display: block;">
-               <input placeholder="States" type="text" name="" id=""> 
-               <button id="btn-state-search">Search</button>
+            <div id="instructions" style="display: block;">
+                <p>Search by state or activity to view a list of national parks.</p>
             </div>
 
-            <div id="activity-search" style="display: ;">
-                <input placeholder="Activities" type="text" name="" id="">
-                <button id="btn-activity-search">Search</button> 
-            </div>
-        </div>
-
-        <div id="instructions" style="display: block;">
-            <p>Search by state or activity to view a list of national parks.</p>
-        </div>
-
-        <div id="search-results" style="display: ;">
-            <h2>Search Results</h2>
-            <ul id="nat-parks-list"></ul>
-        </div>
-
-        <div id="park-presentation" style="display: ;">
-            <!-- check if need div for image -->
-            <div id="image-api2">
-                <img src="" alt="">
-                <button id="btn-save-park">Save Park</button>
+            <div id="search-results" style="display: ;">
+                <h2>Search Results</h2>
+                <ul id="nat-parks-list"></ul>
             </div>
 
-            <div id="park-activities">
-                <!-- other info from api here -->
-                <h3>List of activities</h3>
-                <ul id="park-act-list"></ul>
+            <div id="park-presentation" style="display: ;">
+                <!-- check if need div for image -->
+                <div id="image-api2">
+                    <img src="" alt="">
+                    <button id="btn-save-park">Save Park</button>
+                </div>
+
+                <div id="park-activities">
+                    <!-- other info from api here -->
+                    <h3>List of activities</h3>
+                    <ul id="park-act-list"></ul>
+                </div>
             </div>
+
         </div>
+
+        <aside id="right-side" class="column">
+            <div id="park-info">
+              <p>Explorer America's national parks. Discover our most treasured places, and start your travel planning here by finding your park.</p>
+            </div> 
+      
+            <div id="local-storage-container" class="list">
+                
+              <!-- <div id="input-box">
+                  <input type="text" name="" id="">
+                      
+                  <ul id="saved-parks"></ul>
+              </div> -->
+            </div> 
+            <div id="clear-history">
+                <button id="btn-clear">Clear History</button>
+            </div>
+          </aside>
 
     </main>
+
+    
 
 
 
