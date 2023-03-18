@@ -1,6 +1,6 @@
 
 //bulma example code for the internal storage list -- can we pull the image from ap2 and put in here
-{/* <div class="list">
+/* {<div class="list">
   <div class="list-item box">
     <div class="list-item-image">
       <figure class="image is-64x64">
@@ -39,4 +39,16 @@
       <div class="list-item-description">List item description</div>
     </div>
   </div>
-</div> */}
+</div>  }*/
+
+
+
+// Placeholder code to retrieve state input
+$('#btn-state-search').click(function(){
+  var selectedOption = $('#user-select-state').val();
+  console.log(selectedOption);
+})
+
+
+// Call your function here and pass the selectedOption variable as input
+// example: myOtherFunction(selectedOption);
