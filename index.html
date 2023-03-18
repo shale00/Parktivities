@@ -12,22 +12,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>Parktivities</title>
 </head>
-<body>
-    <header class="hero is-warning box">
+<body style="background-color: #659dbd;">
+    <header class="hero box" style="background-color: #bc986a">
         <div class="hero-body">
-            <p class="title has-text-centered">
+            <p class="title is-2 has-text-centered">
                 Parktivities
             </div>
     </header>
 
-    <main class="columns container is-fluid">
+    <main class="columns container is-fluid is-centered">
 
-        <div class="column is-three-fourths box">
+        <div id="main-display" class="column is-8 box">
 
-            <div id="search-container">
-               <div class="tabs is-toggle is-centered is-boxed is-medium">
+            <div id="selection-box" class="block is-mobile is-centered">
+
+                <div class="tabs is-toggle is-boxed is-normal mb-0 is-centered">
                     <ul>
-                      <li class="is-active has-text-centered">
+                      <li class="is-active">
                         <a id="stateBtn">
                           <span class="icon"><i class="fas fa-flag-usa"></i></span>
                           <span>States</span>
@@ -40,82 +41,94 @@
                         </a>
                       </li>
                 </div> 
-
-
-                <div id="state-search" class="display: block;">
-                    <select name="user-select-state" id="user-select-state" class="select is-normal is-hovered"> 
-                        <option value="Seclect a State">Select a State</option>
-                        <option value="Alabama">Alabama</option>
-                        <option value="Alaska">Alaska</option>
-                        <option value="Arizona">Arizona</option>
-                        <option value="Arkansas">Arkansas</option>
-                        <option value="California">California</option>
-                        <option value="Colorado">Colorado</option>
-                        <option value="Connecticut">Connecticut</option>
-                        <option value="Deleware">Deleware</option>
-                        <option value="Florida">Florida</option>
-                        <option value="Georgia">Georgia</option>
-                        <option value="Hawaii">Hawaii</option>
-                        <option value="Idaho">Idaho</option>
-                        <option value="Illinois">Illinois</option>
-                        <option value="Indiana">Indiana</option>
-                        <option value="Iowa">Iowa</option>
-                        <option value="Kansas">Kansas</option>
-                        <option value="Kentucky">Kentucky</option>
-                        <option value="Louisiana">Louisiana</option>
-                        <option value="Maine">Maine</option>
-                        <option value="Maryland">Maryland</option>
-                        <option value="Massachusetts">Massachusetts</option>
-                        <option value="Michigan">Michigan</option>
-                        <option value="Minnesota">Minnesota</option>
-                        <option value="Mississippi">Mississippi</option>
-                        <option value="Missouri">Missouri</option>
-                        <option value="Montana">Montana</option>
-                        <option value="Nebraska">Nebraska</option>
-                        <option value="Navada">Navada</option>
-                        <option value="New Hamshire">New Hamshire</option>
-                        <option value="New Jersey">New Jersey</option>
-                        <option value="New Mexico">New Mexico</option>
-                        <option value="New York">New York</option>
-                        <option value="North Carolina">North Carolina</option>
-                        <option value="North Dakota">North Dakota</option>
-                        <option value="Ohio">Ohio</option>
-                        <option value="Oklahoma">Oklahoma</option>
-                        <option value="Oregon">Oregon</option>
-                        <option value="Pennsylvania">Pennsylvania</option>
-                        <option value="Rhode Island">Rhode Island</option>
-                        <option value="South Carolina">South Carolina</option>
-                        <option value="South Dakota">South Dakota</option>
-                        <option value="Tennessee">Tennessee</option>
-                        <option value="Texas">Texas</option>
-                        <option value="Utah">Utah</option>
-                        <option value="Vermont">Vermon</option>
-                        <option value="Virgina">Virgina</option>
-                        <option value="Washington">Washington</option>
-                        <option value="West Virgina">West Virgina</option>
-                        <option value="Wisconsin">Wisconsin</option>
-                        <option value="Wyoming">Wyoming</option>
-                    </select>
-                    <button id="btn-state-search">Search</button>
+    
+                <div id="search-container" class="column box is-half is-offset-one-quarter has-text-centered p-6" style="height: 10em">
+                   
+                    <div id="state-search" style="display: none;" class="select">
+                        <select name="user-select-state" id="user-select-state" class="select is-normal is-focused"> 
+                            <option value="Seclect a State">Select a State</option>
+                            <option value="Alabama">Alabama</option>
+                            <option value="Alaska">Alaska</option>
+                            <option value="Arizona">Arizona</option>
+                            <option value="Arkansas">Arkansas</option>
+                            <option value="California">California</option>
+                            <option value="Colorado">Colorado</option>
+                            <option value="Connecticut">Connecticut</option>
+                            <option value="Deleware">Deleware</option>
+                            <option value="Florida">Florida</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Hawaii">Hawaii</option>
+                            <option value="Idaho">Idaho</option>
+                            <option value="Illinois">Illinois</option>
+                            <option value="Indiana">Indiana</option>
+                            <option value="Iowa">Iowa</option>
+                            <option value="Kansas">Kansas</option>
+                            <option value="Kentucky">Kentucky</option>
+                            <option value="Louisiana">Louisiana</option>
+                            <option value="Maine">Maine</option>
+                            <option value="Maryland">Maryland</option>
+                            <option value="Massachusetts">Massachusetts</option>
+                            <option value="Michigan">Michigan</option>
+                            <option value="Minnesota">Minnesota</option>
+                            <option value="Mississippi">Mississippi</option>
+                            <option value="Missouri">Missouri</option>
+                            <option value="Montana">Montana</option>
+                            <option value="Nebraska">Nebraska</option>
+                            <option value="Navada">Navada</option>
+                            <option value="New Hamshire">New Hamshire</option>
+                            <option value="New Jersey">New Jersey</option>
+                            <option value="New Mexico">New Mexico</option>
+                            <option value="New York">New York</option>
+                            <option value="North Carolina">North Carolina</option>
+                            <option value="North Dakota">North Dakota</option>
+                            <option value="Ohio">Ohio</option>
+                            <option value="Oklahoma">Oklahoma</option>
+                            <option value="Oregon">Oregon</option>
+                            <option value="Pennsylvania">Pennsylvania</option>
+                            <option value="Rhode Island">Rhode Island</option>
+                            <option value="South Carolina">South Carolina</option>
+                            <option value="South Dakota">South Dakota</option>
+                            <option value="Tennessee">Tennessee</option>
+                            <option value="Texas">Texas</option>
+                            <option value="Utah">Utah</option>
+                            <option value="Vermont">Vermont</option>
+                            <option value="Virgina">Virgina</option>
+                            <option value="Washington">Washington</option>
+                            <option value="West Virgina">West Virgina</option>
+                            <option value="Wisconsin">Wisconsin</option>
+                            <option value="Wyoming">Wyoming</option>
+                        </select>
+                        <div class="p-2">
+                            <button id="btn-state-search" class="button is-success p-4">Search</button>
+                        </div>
+                        
+                    </div>
+    
+                    <div id="activity-search" style="display:" class="select">
+                        <select name="user-select-activity" id="user-select-activity" class="select is-normal is-hovered"> 
+                            <option value="Seclect an Activity">Select an Activity</option>
+                            <option value="Camping">Camping</option>
+                            <option value="Climbing">Climbing</option>
+                            <option value="Cycling">Cycling</option>
+                            <option value="Fishing">Fishing</option>
+                            <option value="Hiking">Hiking</option>
+                            <option value="Swimming">Swimming</option>
+                        </select>
+                        <div class="p-2">
+                            <button id="btn-state-search" class="button is-success p-4">Search</button>
+                        </div> 
+                    </div>
+    
                 </div>
-
-                <div id="activity-search" class="display: ;">
-                    <select name="user-select-activity" id="user-select-activity" class="select is-normal is-hovered"> 
-                        <option value="Seclect an Activity">Select an Activity</option>
-                        <option value="Camping">Camping</option>
-                        <option value="Climbing">Climbing</option>
-                        <option value="Cycling">Cycling</option>
-                        <option value="Fishing">Fishing</option>
-                        <option value="Hiking">Hiking</option>
-                        <option value="Swimming">Swimming</option>
-                    </select>
-                    <button id="btn-activity-search">Search</button> 
-                </div>
+    
 
             </div>
 
-            <div id="instructions" style="display: block;">
-                <p>Search by state or activity to view a list of national parks.</p>
+            
+            <div id="instructions" style="display: block; background-color: bisque" class="pt-2 column box is-half is-offset-one-quarter">
+                <p class="has-text-left has-text-weight-semibold ">To find a park and its relevant information, first select either the State or Activities tab to show the respective drop-down menu. 
+                    Select an item from one of the drop-down menu's and then click the search button to generate a list of parks relative to your selection. Click on the park you are interested in, to display 
+                    an image of the park and a list of activities available at that park. If you want explore other park options but are interested in the park you selected, click on the Save Park button to save that park for your reference.</p>
             </div>
 
             <div id="search-results" style="display: ;">
