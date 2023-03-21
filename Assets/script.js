@@ -76,15 +76,6 @@ $('#actSearchBtn').click(function(){
     } else {return};
   });
 
-$('#actSearchBtn').click(function(){
-  var selectedActivity = $('#user-select-activity').val();
-  if (selectedActivity !== 'Select an Activity') {
-      console.log(selectedActivity);
-      // Call the api function here and pass the selectedOption variable as input
-      // example: myOtherFunction(selectedOption);
-      clearPrevList();
-  } else {return};
-});
 
 $("body").on("click", "a.panel-block", function(){
 var selectedParkCode = $(this).data("parkcode");
