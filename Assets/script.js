@@ -75,3 +75,43 @@ $('#actSearchBtn').click(function(){
         clearPrevList();
     } else {return};
   });
+
+$('#actSearchBtn').click(function(){
+  var selectedActivity = $('#user-select-activity').val();
+  if (selectedActivity !== 'Select an Activity') {
+      console.log(selectedActivity);
+      // Call the api function here and pass the selectedOption variable as input
+      // example: myOtherFunction(selectedOption);
+      clearPrevList();
+  } else {return};
+});
+
+$("body").on("click", "a.panel-block", function(){
+var selectedParkCode = $(this).data("parkcode");
+console.log("Selected park code : " + selectedParkCode);
+var keyAPI1 = 'kKdZBz5WfXYXbVr9X3e2Y6bYqadiMvS9mT17Qasp'
+var parkInfoUrl = 'https://developer.nps.gov/api/v1/parks?parkcode='+ selectedParkCode + '&limit=10&api_key=' + keyAPI1;
+if (selectedParkCode !== '') {
+  fetch(parkInfoUrl).then(function(response) {
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return response.json();
+  })
+  .then(function(data) {
+    
+    var parkInfo = data.data[0];
+    var parkAddress = parkInfo.addresses[0];
+    console.log("Park Name:" + parkInfo.fullName);
+    console.log("Park Description: " + parkInfo.description);
+    console.log("Park Activities: ");
+    parkInfo.activities.forEach(function(activity){
+      console.log(activity.name);
+    });
+    console.log("Park addresses: " + parkAddress.line1 + "," + parkAddress.line2 + "," + parkAddress.line3 + "," + parkAddress.city + "," + parkAddress.postalCode + ".");
+    
+    
+    console.log("Park Image : " + parkInfo.images[0].url);
+  });
+}  else {return};
+}); 
