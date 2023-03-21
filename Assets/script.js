@@ -47,7 +47,7 @@ $('#stateSearchBtn').click(function(){
       const newList = $('<div class="panel"></div>');
 
       data.data.forEach(function(park) {
-        const parkLink = $('<a class="panel-block"></a>');
+        const parkLink = $(`<a class="panel-block" data-parkcode=${park.parkCode}></a>`);
         const icon = $('<span class="panel-icon"><i class="fad fa-trees" aria-hidden="true"></i></span>');
         const parkName = $(`<span>${park.fullName}</span>`);
         parkLink.append(icon, parkName);
