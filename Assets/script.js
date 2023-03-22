@@ -31,6 +31,7 @@ $('#stateSearchBtn').click(function(){
       $('#search-results').attr('style', 'display: ;');
       $('#instructions').attr('style', 'display: none;');
       $('#search-results').attr('style', 'display: ;');
+      $('#park-info').attr('style', 'display: none;');
       console.log('display results');
       console.log(selectedState);
 
@@ -44,10 +45,10 @@ $('#stateSearchBtn').click(function(){
       //need to figure out how to clear previous list
       
       // create new list
-      const newList = $('<div class="panel"></div>');
+      var newList = $('<div class="panel"></div>');
 
       data.data.forEach(function(park) {
-        const parkLink = $('<a class="panel-block"></a>');
+        const parkLink = $(`<a class="panel-block" data-parkcode=${park.parkCode}></a>`);
         const icon = $('<span class="panel-icon"><i class="fad fa-trees" aria-hidden="true"></i></span>');
         const parkName = $(`<span>${park.fullName}</span>`);
         parkLink.append(icon, parkName);
@@ -57,9 +58,10 @@ $('#stateSearchBtn').click(function(){
           parkInfo(data);
         })
       });
-
-      // insert new list after first child element
-      $('#search-results').children().first().after(newList);
+//clearing previous result and keeping header
+$('#search-results').html(`<p class="panel-heading is-italic">Search Results</p>`);
+// insert new list after first child element
+$('#search-results').append(newList);
     })
     .catch(function(error) {
       console.error(error);
@@ -114,3 +116,58 @@ $('#actSearchBtn').click(function(){
     });
   }
 });
+
+   
+// display park information
+$("body").on("click", "a.panel-block", function(){
+var selectedParkCode = $(this).data("parkcode");
+console.log("Selected park code : " + selectedParkCode);
+var keyAPI1 = 'kKdZBz5WfXYXbVr9X3e2Y6bYqadiMvS9mT17Qasp'
+var parkInfoUrl = 'https://developer.nps.gov/api/v1/parks?parkcode='+ selectedParkCode + '&limit=10&api_key=' + keyAPI1;
+if (selectedParkCode !== '') {
+  fetch(parkInfoUrl).then(function(response) {
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return response.json();
+  })
+  .then(function(data) {
+    
+    
+      $('#instructions').attr('style', 'display: none;');
+      $('#search-results').attr('style', 'display: none;');
+      $('#park-info').attr('style', 'display: block;');
+    var parkInfo = data.data[0];
+    //var parkAddress = parkInfo.addresses[0];
+
+    $("#park-info").html(`<p class="panel-heading is-italic title">${parkInfo.fullName}</p>`);
+
+    $('#park-info').append(`<figure class="image is-128x128">
+    <img src=${parkInfo.images[0].url}></img>
+    </figure>`);
+
+    $('#park-info').append(`<p><b>Park Description:</b>${parkInfo.description}</p>`);
+
+    var parkActivities = "";
+    if(parkInfo.activities.length>0)
+    {
+      parkInfo.activities.forEach(function(activity){
+       parkActivities=parkActivities +activity.name + ",";
+      });
+  
+    }
+    
+    
+    $('#park-info').append(`<p><b>Park Activities:</b>${parkActivities}</p>`);
+
+
+   var parkAddress = parkInfo.addresses[0].line1 + "," + parkInfo.addresses[0].line2 + "," + parkInfo.addresses[0].line3 + "," + parkInfo.addresses[0].city + "," + parkInfo.addresses[0].postalCode + ".";
+
+$('#park-info').append(`<p><b>Park Address:</b>${parkAddress}</p>`);
+
+   
+    
+   
+  });
+}  else {return};
+}); 
