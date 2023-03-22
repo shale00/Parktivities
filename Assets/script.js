@@ -45,7 +45,7 @@ $('#stateSearchBtn').click(function(){
       //need to figure out how to clear previous list
       
       // create new list
-      const newList = $('<div class="panel"></div>');
+      var newList = $('<div class="panel"></div>');
 
       data.data.forEach(function(park) {
         const parkLink = $(`<a class="panel-block" data-parkcode=${park.parkCode}></a>`);
@@ -54,9 +54,10 @@ $('#stateSearchBtn').click(function(){
         parkLink.append(icon, parkName);
         newList.append(parkLink);
       });
-
-      // insert new list after first child element
-      $('#search-results').children().first().after(newList);
+//clearing previous result and keeping header
+$('#search-results').html(`<p class="panel-heading is-italic">Search Results</p>`);
+// insert new list after first child element
+$('#search-results').append(newList);
     })
     .catch(function(error) {
       console.error(error);
