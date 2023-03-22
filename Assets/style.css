@@ -1,6 +1,26 @@
 /* May not need this -- Bulma is linked in the html head */
 /* see https://bulma.io/documentation/ for a guide to Bulma */
 
-.box.info {
-    margin: 500px;
+
+/* Container and Clear History btn */
+
+#input-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.info {
+    padding-bottom: 292px;
+    background-color: white;
+    border-radius: 0.8dvb;
 }
+
+#btn-clear {
+    background-color: #bc986a;
+    color: white;
+    margin: 9px 40% 0px;
+}
+
+
+  
