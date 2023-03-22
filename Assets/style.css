@@ -2,16 +2,17 @@
 /* see https://bulma.io/documentation/ for a guide to Bulma */
 
 
-/* Container and Clear History btn */
 
-#input-box {
+/* R/H Container and Clear History btn */
+
+.column {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
 .info {
-    padding-bottom: 292px;
+    padding-bottom: 320px;
     background-color: white;
     border-radius: 0.8dvb;
 }
@@ -19,8 +20,5 @@
 #btn-clear {
     background-color: #bc986a;
     color: white;
-    margin: 9px 40% 0px;
+    margin: 16px 14vw
 }
-
-
-  
