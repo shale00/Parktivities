@@ -26,7 +26,7 @@ $('#actBtn').click(function(event){
 $('#stateSearchBtn').click(function(){
   var selectedState = $('#user-select-state').val();
   var keyAPI1 = 'kKdZBz5WfXYXbVr9X3e2Y6bYqadiMvS9mT17Qasp'
-  var queryURL1 = 'https://developer.nps.gov/api/v1/parks?stateCode='+ selectedState + '&limit=10&api_key=' + keyAPI1;
+  var queryURL1 = 'https://developer.nps.gov/api/v1/parks?stateCode='+ selectedState + '&api_key=' + keyAPI1;
   if (selectedState !== 'Select a State') {
       $('#search-results').attr('style', 'display: ;');
       $('#instructions').attr('style', 'display: none;');
@@ -53,6 +53,10 @@ $('#stateSearchBtn').click(function(){
         const parkName = $(`<span>${park.fullName}</span>`);
         parkLink.append(icon, parkName);
         newList.append(parkLink);
+
+        parkLink.on('click', function() {
+          parkInfo(data);
+        })
       });
 //clearing previous result and keeping header
 $('#search-results').html(`<p class="panel-heading is-italic">Search Results</p>`);
@@ -67,17 +71,53 @@ $('#search-results').append(newList);
   } else {return};
 });
 
-
 $('#actSearchBtn').click(function(){
-    var selectedActivity = $('#user-select-activity').val();
-    if (selectedActivity !== 'Select an Activity') {
-        console.log(selectedActivity);
-        // Call the api function here and pass the selectedOption variable as input
-        // example: myOtherFunction(selectedOption);
-        clearPrevList();
-    } else {return};
-  });
+  var selectedActivity = $('#user-select-activity').val();
+  var keyAPI2 = 'kKdZBz5WfXYXbVr9X3e2Y6bYqadiMvS9mT17Qasp';
+  var queryURL2 = 'https://developer.nps.gov/api/v1/activities/parks?q=' + selectedActivity + '&api_key=' + keyAPI2;
+  if (selectedActivity !== 'Select an Activity') {
+      $('#search-results').attr('style', 'display: ;');
+      $('#instructions').attr('style', 'display: none;');
+      console.log('display results');
+      console.log(selectedActivity);
 
+    fetch(queryURL2).then(function(response) {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then(function(data) {
+      console.log(data);
+      console.log(typeof data);
+
+      console.log(data.data[0].parks[0].fullName);
+      console.log(data.data[0].parks[0].parkCode);
+
+      //create new list
+      const newList = $('<div class="panel"></div>');
+
+      data.data.forEach(function(activity) {
+        if (activity.name === selectedActivity) {
+          activity.parks.forEach(function(park) {
+            const parkLink = $(`<a class="panel-block" data-parkcode=${park.parkCode}></a>`);
+            const icon = $(`<span class="panel-icon"><i class="fad fa-trees" aria-hidden="true"></i></span>`);
+            const parkName = $(`<span>${park.fullName}</span>`);
+            parkLink.append(icon, parkName);
+            newList.append(parkLink);
+          });
+        }
+      });
+
+      $('#search-results').children().first().after(newList);
+    })
+    .catch(function(error) {
+      console.log('Error fetching data:', error);
+    });
+  }
+});
+
+   
 // display park information
 $("body").on("click", "a.panel-block", function(){
 var selectedParkCode = $(this).data("parkcode");
