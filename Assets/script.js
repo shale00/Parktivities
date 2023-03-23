@@ -138,6 +138,8 @@ if (selectedParkCode !== '') {
     var parkInfo = data.data[0];
     //var parkAddress = parkInfo.addresses[0];
 
+    searchHistoryList(parkInfo);
+
     $("#park-info").html(`<p class="panel-heading is-italic title">${parkInfo.fullName}</p>`);
 
     $('#park-info').append(`<figure class="image is-128x128">
@@ -170,3 +172,103 @@ $('#park-info').append(`<p><b>Park Address:</b>${parkAddress}</p>`);
 }  else {return};
 }); 
 
+
+var savedSearches = [];
+// make list of previously searched parkNames
+var searchHistoryList = function(parkInfo) {
+    parkName= parkInfo.fullName;
+    parkCode=parkInfo.parkCode;
+
+    console.log(parkCode);
+    
+    $('.past-search:contains("' + parkName + '")').remove();
+    // create entry with city name
+    var searchHistoryEntry = $(`<a class="past-search" data-parkcode=${parkCode} href="#">${parkName}</a>`);
+
+    // create container for entry
+    var searchEntryContainer = $("<div>");
+    searchEntryContainer.addClass("past-search-container");
+    // append entry to container
+    searchEntryContainer.append(searchHistoryEntry);
+    // append entry container to search history container
+    var searchHistoryContainerEl = $("#search-history-container");
+    searchHistoryContainerEl.append(searchEntryContainer);
+    if (savedSearches.length >0) 
+    {
+        // update savedSearches array with previously saved searches
+        var previousSavedSearches = localStorage.getItem("savedSearches");
+        savedSearches = JSON.parse(previousSavedSearches);
+    }
+    // add city name to array of saved searches
+    savedSearches.push(parkName,parkCode);
+    localStorage.setItem("savedSearches", JSON.stringify(savedSearches));
+    // reset search input. 
+    $("#search-input").val("");
+  };
+
+
+var loadSearchHistory = function ()
+{
+  // get saved search history
+  var savedSearchHistory = localStorage.getItem("savedSearches");
+  // return false if there is no previous saved searches
+  if (!savedSearchHistory)
+  {
+    return false;
+  }
+  // turn saved search history string into array
+  savedSearchHistory = JSON.parse(savedSearchHistory);
+  // go through savedSearchHistory array and make entry for each item in the list
+  for (var i = 0; i < savedSearchHistory.length; i++)
+  {
+    searchHistoryList(savedSearchHistory[i]);
+  }
+};
+
+$("#btn-clear").on("click", function ()
+{
+ $('#search-history-container').empty();
+  localStorage.clear();
+})
+
+$("body").on("click", "a.past-search", function ()
+{
+  var selectedParkCode = $(this).data("parkcode");
+  console.log("Selected park code : " + selectedParkCode);
+  var keyAPI1 = 'kKdZBz5WfXYXbVr9X3e2Y6bYqadiMvS9mT17Qasp'
+  var parkInfoUrl = 'https://developer.nps.gov/api/v1/parks?parkcode=' + 
+  selectedParkCode + '&limit=10&api_key=' + keyAPI1;
+  if (selectedParkCode !== '') {
+    fetch(parkInfoUrl).then(function (response) {
+      if (!response.ok)
+      {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then(function (data) 
+    {
+      $('#instructions').attr('style', 'display: none;');
+      $('#search-results').attr('style', 'display: none;');
+      $('#park-info').attr('style', 'display: block;');
+      var parkInfo = data.data[0];
+      $("#park-info").html(`<p class="panel-heading is-italic title">${parkInfo.fullName}</p>`);
+      $('#park-info').append(`<figure class="image is-128x128">
+       <img src=${parkInfo.images[0].url}></img>
+      </figure>`);
+      $('#park-info').append(`<p><b>Park Description:</b>${parkInfo.description}</p>`);
+      var parkActivities = "";
+      if (parkInfo.activities.length > 0) 
+      {
+          parkInfo.activities.forEach(function (activity) {
+          parkActivities = parkActivities + activity.name + ",";
+      });
+    }
+    $('#park-info').append(`<p><b>Park Activities:</b>${parkActivities}</p>`);
+    var parkAddress = parkInfo.addresses[0].line1 + "," + parkInfo.addresses[0].line2 + "," + parkInfo.addresses[0].line3 + "," + parkInfo.addresses[0].city + "," + parkInfo.addresses[0].postalCode + ".";
+    $('#park-info').append(`<p><b>Park Address:</b>${parkAddress}</p>`);
+    });
+  } else { return };
+});
+
+loadSearchHistory();
