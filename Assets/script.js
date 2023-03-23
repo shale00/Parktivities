@@ -30,7 +30,6 @@ $('#stateSearchBtn').click(function(){
   if (selectedState !== 'Select a State') {
       $('#search-results').attr('style', 'display: ;');
       $('#instructions').attr('style', 'display: none;');
-      $('#search-results').attr('style', 'display: ;');
       $('#park-info').attr('style', 'display: none;');
       console.log('display results');
       console.log(selectedState);
@@ -45,7 +44,7 @@ $('#stateSearchBtn').click(function(){
       //need to figure out how to clear previous list
       
       // create new list
-      var newList = $('<div class="panel"></div>');
+      var newList = $('<div class="panel" style="max-height: 450px; overflow-y: scroll";></div>');
 
       data.data.forEach(function(park) {
         const parkLink = $(`<a class="panel-block" data-parkcode=${park.parkCode}></a>`);
@@ -54,14 +53,11 @@ $('#stateSearchBtn').click(function(){
         parkLink.append(icon, parkName);
         newList.append(parkLink);
 
-        parkLink.on('click', function() {
-          parkInfo(data);
-        })
       });
-//clearing previous result and keeping header
-$('#search-results').html(`<p class="panel-heading is-italic">Search Results</p>`);
-// insert new list after first child element
-$('#search-results').append(newList);
+        //clearing previous result and keeping header
+        $('#search-results').html(`<p class="panel-heading is-italic">Search Results</p>`);
+        // insert new list after first child element
+        $('#search-results').append(newList);
     })
     .catch(function(error) {
       console.error(error);
@@ -95,7 +91,7 @@ $('#actSearchBtn').click(function(){
       console.log(data.data[0].parks[0].parkCode);
 
       //create new list
-      const newList = $('<div class="panel"></div>');
+      var newList = $('<div class="panel" style=" max-height: 450px; overflow-y: scroll;"></div>');
 
       data.data.forEach(function(activity) {
         if (activity.name === selectedActivity) {
@@ -106,10 +102,12 @@ $('#actSearchBtn').click(function(){
             parkLink.append(icon, parkName);
             newList.append(parkLink);
           });
+          //clearing previous result and keeping header
+          $('#search-results').html(`<p class="panel-heading is-italic">Search Results</p>`);
+          // insert new list after first child element
+          $('#search-results').append(newList);
         }
       });
-
-      $('#search-results').children().first().after(newList);
     })
     .catch(function(error) {
       console.log('Error fetching data:', error);
