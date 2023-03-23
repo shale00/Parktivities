@@ -171,3 +171,4 @@ $('#park-info').append(`<p><b>Park Address:</b>${parkAddress}</p>`);
   });
 }  else {return};
 }); 
+
