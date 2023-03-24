@@ -30,7 +30,6 @@ $('#stateSearchBtn').click(function(){
   if (selectedState !== 'Select a State') {
       $('#search-results').attr('style', 'display: ;');
       $('#instructions').attr('style', 'display: none;');
-      $('#park-info').attr('style', 'display: none;');
       console.log('display results');
       console.log(selectedState);
 
@@ -133,7 +132,6 @@ if (selectedParkCode !== '') {
     
     
       $('#instructions').attr('style', 'display: none;');
-      $('#search-results').attr('style', 'display: none;');
       $('#park-info').attr('style', 'display: block;');
     var parkInfo = data.data[0];
     //var parkAddress = parkInfo.addresses[0];
