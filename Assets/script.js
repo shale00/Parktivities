@@ -165,6 +165,44 @@ $("body").on("click", "a.panel-block", function () {
 
         $('#park-info').append(`<p><b>Park Address:</b>${parkAddress}</p>`);
 
+var statecode = data.data[0].states;
+console.log("This is it " + statecode);
+//Check to see if park is in multiple states
+if (statecode.length > 2){
+  var flag = "the_United_States";}
+//Change state codes to names for wikipedia api
+else if (statecode = "HI") {
+  var flag = "Hawaii";
+}
+
+//Sets up image URl check
+var url = "https://en.wikipedia.org/w/api.php"; 
+var params = {
+    action: "query",
+    titles: "File:Flag_of_" + flag + ".svg",
+    format: "json",
+    prop: "imageinfo",
+    iiprop: "url"
+};
+
+url = url + "?origin=*";
+Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+
+
+console.log("start");
+
+async function geturl () {
+  response = await fetch(url);
+  wikidata = await response.json();
+  console.log(JSON.stringify(wikidata));
+}
+geturl();
+
+setTimeout(console.log("end"), 1000);
+
+
+console.log(wikidata);
+        
 
 
 
