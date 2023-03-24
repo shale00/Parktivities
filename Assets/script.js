@@ -185,7 +185,7 @@ var searchHistoryList = function (parkInfo) {
 
   $('.past-search:contains("' + parkName + '")').remove();
   // create entry with city name
-  var searchHistoryEntry = $(`<a class="past-search" data-parkcode=${parkCode} href="#">${parkName}</a>`);
+  var searchHistoryEntry = $(`<a class="past-search panel-block" data-parkcode=${parkCode} href="#">${parkName}</a>`);
 
   // create container for entry
   var searchEntryContainer = $("<div>");
