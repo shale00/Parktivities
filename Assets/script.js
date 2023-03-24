@@ -28,11 +28,10 @@ $('#stateSearchBtn').click(function () {
   var keyAPI1 = 'kKdZBz5WfXYXbVr9X3e2Y6bYqadiMvS9mT17Qasp'
   var queryURL1 = 'https://developer.nps.gov/api/v1/parks?stateCode=' + selectedState + '&api_key=' + keyAPI1;
   if (selectedState !== 'Select a State') {
-    $('#search-results').attr('style', 'display: ;');
-    $('#instructions').attr('style', 'display: none;');
-    $('#park-info').attr('style', 'display: none;');
-    console.log('display results');
-    console.log(selectedState);
+      $('#search-results').attr('style', 'display: ;');
+      $('#instructions').attr('style', 'display: none;');
+      console.log('display results');
+      console.log(selectedState);
 
     fetch(queryURL1).then(function (response) {
       if (!response.ok) {
@@ -40,6 +39,7 @@ $('#stateSearchBtn').click(function () {
       }
       return response.json();
     })
+
       .then(function (data) {
         //need to figure out how to clear previous list
 
@@ -143,6 +143,7 @@ $("body").on("click", "a.panel-block", function () {
         $("#park-info").html(`<p class="panel-heading is-italic title">${parkInfo.fullName}</p>`);
 
         $('#park-info').append(`<figure class="image is-128x128">
+
     <img src=${parkInfo.images[0].url}></img>
     </figure>`);
 
@@ -207,6 +208,7 @@ var searchHistoryList = function (parkInfo) {
   $("#search-input").val("");
 
 };
+
 
 
 var loadSearchHistory = function ()
