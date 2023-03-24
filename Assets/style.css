@@ -1,3 +1,9 @@
+#header {
+    background-image: url(./Images/david-marcu-W5MhJ6cy1So-unsplash.jpg);
+    background-position: center -60px;
+    background-size: cover;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
@@ -16,5 +22,3 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #8D8741; 
   }
-
-  
