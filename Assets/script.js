@@ -30,7 +30,6 @@ $('#stateSearchBtn').click(function(){
   if (selectedState !== 'Select a State') {
       $('#search-results').attr('style', 'display: ;');
       $('#instructions').attr('style', 'display: none;');
-      $('#park-info').attr('style', 'display: none;');
       console.log('display results');
       console.log(selectedState);
 
@@ -133,7 +132,6 @@ if (selectedParkCode !== '') {
     
     
       $('#instructions').attr('style', 'display: none;');
-      $('#search-results').attr('style', 'display: none;');
       $('#park-info').attr('style', 'display: block;');
     var parkInfo = data.data[0];
     //var parkAddress = parkInfo.addresses[0];
@@ -183,7 +181,7 @@ var searchHistoryList = function(parkInfo) {
     
     $('.past-search:contains("' + parkName + '")').remove();
     // create entry with city name
-    var searchHistoryEntry = $(`<a class="past-search" data-parkcode=${parkCode} href="#">${parkName}</a>`);
+    var searchHistoryEntry = $(`<a class="past-search panel-block" data-parkcode=${parkCode} href="#">${parkName}</a>`);
 
     // create container for entry
     var searchEntryContainer = $("<div>");
