@@ -1,3 +1,20 @@
-/* May not need this -- Bulma is linked in the html head */
-/* see https://bulma.io/documentation/ for a guide to Bulma */
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #8D8741; 
+    border-radius: 10px;
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #659DBD; 
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8D8741; 
+  }
 
+  

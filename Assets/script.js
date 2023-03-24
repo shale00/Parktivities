@@ -44,7 +44,7 @@ $('#stateSearchBtn').click(function(){
       //need to figure out how to clear previous list
       
       // create new list
-      var newList = $('<div class="panel" style="max-height: 450px; overflow-y: scroll";></div>');
+      var newList = $('<div class="panel" style="max-height: 450px; overflow-y: scroll;";></div>');
 
       data.data.forEach(function(park) {
         const parkLink = $(`<a class="panel-block" data-parkcode=${park.parkCode}></a>`);
