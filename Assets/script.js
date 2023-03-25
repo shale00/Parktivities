@@ -353,7 +353,13 @@ async function geturl () {
   console.log("Check");
   //converts Image URL from array to string
   console.log(imgurl.join(""));
+  imgurl = imgurl.join("");
+  document.getElementById("park-presentation").style.display = "block";
+  document.getElementById("flagpic").src = imgurl;
+  document.getElementById("flagpic").width = "200";
+  document.getElementById("flagpic").height = "150";
 };
+
 geturl();
 
         
