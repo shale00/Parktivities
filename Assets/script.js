@@ -166,9 +166,6 @@ $("body").on("click", "a.panel-block", function () {
         $('#park-info').append(`<p><b>Park Address:</b>${parkAddress}</p>`);
 
 var statecode = data.data[0].states;
-console.log("This is it " + statecode);
-console.log(statecode.length)
-console.log(typeof (statecode));
 //Switch Function to determine which state to search for in wiki api
 switch (statecode) {
   case "AL":
@@ -356,15 +353,9 @@ async function geturl () {
   console.log("Check");
   //converts Image URL from array to string
   console.log(imgurl.join(""));
-  console.log("Check");
-
 };
 geturl();
 
-setTimeout(console.log("end"), 1000);
-
-
-//console.log(wikidata);
         
 
 
