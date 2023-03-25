@@ -133,7 +133,7 @@ $("body").on("click", "a.panel-block", function () {
 
 
         $('#instructions').attr('style', 'display: none;');
-        $('#search-results').attr('style', 'display: none;');
+        // $('#search-results').attr('style', 'display: none;');
         $('#park-info').attr('style', 'display: block;');
         var parkInfo = data.data[0];
 
@@ -249,7 +249,7 @@ $("body").on("click", "a.past-search", function () {
     })
       .then(function (data) {
         $('#instructions').attr('style', 'display: none;');
-        $('#search-results').attr('style', 'display: none;');
+        // $('#search-results').attr('style', 'display: none;');
         $('#park-info').attr('style', 'display: block;');
         var parkInfo = data.data[0];
         $("#park-info").html(`<p class="panel-heading is-italic title">${parkInfo.fullName}</p>`);
