@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.js" 
     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
-    crossorigin="anonymous">
-    </script>
+    crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./Assets/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>Parktivities</title>
@@ -40,12 +39,13 @@
                           <span>Activities</span>
                         </a>
                       </li>
+                    </ul>
                 </div> 
     
                 <div id="search-container" class="column box is-half is-offset-one-quarter has-text-centered p-6" style="height: 10em; background-color: #659dbd;">
                    
                     <div id="state-search" class="select">
-                        <select name="user-select-state" id="user-select-state" class="select is-normal"> 
+                        <select name="user-select-state" id="user-select-state" class="select is-normal is-hovered"> 
                             <option value="Select a State">Select a State</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -98,12 +98,12 @@
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>
+
                         <div class="p-2">
                             <button id="stateSearchBtn" class="button is-success p-4">Search</button>
                         </div>
-                        
-                    </div>
-    
+                   </div>
+
                     <div id="activity-search" style="display: none" class="select">
                         <select name="user-select-activity" id="user-select-activity" class="select is-normal is-hovered"> 
                             <option value="Select an Activity">Select an Activity</option>
@@ -134,13 +134,9 @@
                             <button id="actSearchBtn" class="button is-success p-4">Search</button>
                         </div> 
                     </div>
-    
                 </div>
-    
-
             </div>
-
-            
+ 
             <div id="instructions" style="display: block; background-color: #659dbd" class="pt-2 column box is-half is-offset-one-quarter">
                 <p class="has-text-left has-text-weight-semibold ">To find a park and its relevant information, first select either the State or Activities tab to show the respective drop-down menu. 
                     Select an item from one of the drop-down menu's and then click the search button to generate a list of parks relative to your selection. Click on the park you are interested in, to display 
@@ -152,10 +148,8 @@
                 <!-- Park List will display here -->
             </div>
             
-
             <div id="park-info" style="display:none ;" class="panel">
             </div>
-
 
             <div id="park-presentation" style="display: none">
                 <!-- check if need div for image -->
@@ -178,14 +172,11 @@
               <p strong>Come visit America's national parks for stunning natural landscapes, outdoor adventures, and unique experiences. Explore majestic peaks, colorful valleys, and witness wildlife in their natural habitat. Whether you're an outdoor enthusiast or looking for a peaceful retreat, the national parks offer something for everyone. Don't miss out on this opportunity to experience the wonders of nature.</p>
             </div>  -->
            
-
             <div id="local-storage-container" class="list">
                 <p class="panel-heading is-italic has-text-centered">National Park Search History</p>
-                <div id="input-box" style="padding-bottom: 290px; background-color: white;"; class="">                   
-    
-
-                <div id="search-history-container" class="row m-0"></div>
                 
+                <div id="input-box" style="padding-bottom: 290px; background-color: white;" class="img">                   
+                   <div id="search-history-container" class="row m-0"></div>               
                 </div>
               
             </div> 
