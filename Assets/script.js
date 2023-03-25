@@ -133,7 +133,7 @@ $("body").on("click", "a.panel-block", function () {
 
 
         $('#instructions').attr('style', 'display: none;');
-        $('#search-results').attr('style', 'display: none;');
+        // $('#search-results').attr('style', 'display: none;');
         $('#park-info').attr('style', 'display: block;');
         var parkInfo = data.data[0];
 
@@ -185,7 +185,7 @@ var searchHistoryList = function (parkInfo) {
 
   $('.past-search:contains("' + parkName + '")').remove();
   // create entry with city name
-  var searchHistoryEntry = $(`<a class="past-search" data-parkcode=${parkCode} href="#">${parkName}</a>`);
+  var searchHistoryEntry = $(`<a class="past-search panel-block" data-parkcode=${parkCode} href="#">${parkName}</a>`);
 
   // create container for entry
   var searchEntryContainer = $("<div>");
@@ -249,7 +249,7 @@ $("body").on("click", "a.past-search", function () {
     })
       .then(function (data) {
         $('#instructions').attr('style', 'display: none;');
-        $('#search-results').attr('style', 'display: none;');
+        // $('#search-results').attr('style', 'display: none;');
         $('#park-info').attr('style', 'display: block;');
         var parkInfo = data.data[0];
         $("#park-info").html(`<p class="panel-heading is-italic title">${parkInfo.fullName}</p>`);
