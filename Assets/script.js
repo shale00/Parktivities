@@ -195,13 +195,20 @@ async function geturl () {
   response = await fetch(url);
   wikidata = await response.json();
   console.log(JSON.stringify(wikidata));
-}
+  imgurl = JSON.parse(JSON.stringify(wikidata));
+  console.log(Object.keys.wikidata);
+  //console.log(imgurl.keys(query.pages)[0]);
+//trying to get specific url data
+
+  finalurl = JSON.parse(JSON.stringify(wikidata))
+};
+
 geturl();
 
 setTimeout(console.log("end"), 1000);
 
 
-console.log(wikidata);
+//console.log(wikidata);
         
 
 
