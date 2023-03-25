@@ -142,7 +142,7 @@ $("body").on("click", "a.panel-block", function () {
 
         $("#park-info").html(`<p class="panel-heading is-italic title">${parkInfo.fullName}</p>`);
 
-        $('#park-info').append(`<figure class="image is-128x128">
+        $('#park-info').append(`<figure class="image ">
 
     <img src=${parkInfo.images[0].url}></img>
     </figure>`);
@@ -253,7 +253,7 @@ $("body").on("click", "a.past-search", function () {
         $('#park-info').attr('style', 'display: block;');
         var parkInfo = data.data[0];
         $("#park-info").html(`<p class="panel-heading is-italic title">${parkInfo.fullName}</p>`);
-        $('#park-info').append(`<figure class="image is-128x128">
+        $('#park-info').append(`<figure class="image ">
        <img src=${parkInfo.images[0].url}></img>
       </figure>`);
         $('#park-info').append(`<p><b>Park Description:</b>${parkInfo.description}</p>`);
