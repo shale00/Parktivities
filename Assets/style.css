@@ -4,6 +4,11 @@
     background-size: cover;
 }
 
+#title {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: sans; color: white;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
