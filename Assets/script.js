@@ -56,7 +56,9 @@ $('#stateSearchBtn').click(function () {
       .catch(function (error) {
         console.error(error);
       });
-  } else { return };
+  } else {
+    $('#modal').attr('class','modal is-active');
+  };
 });
 
 $('#actSearchBtn').click(function () {
@@ -102,7 +104,9 @@ $('#actSearchBtn').click(function () {
       .catch(function (error) {
         console.log('Error fetching data:', error);
       });
-  }
+  } else {
+    $('#modal').attr('class','modal is-active');
+  };
 });
 
 
@@ -450,3 +454,16 @@ $("body").on("click", "a.past-search", function () {
 
 // loadSearchHistory() function call 
 loadSearchHistory();
+
+(document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+  const $target = $close.closest('.modal');
+
+  $close.addEventListener('click', () => {
+    closeModal($target);
+  });
+});
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("is-active");
+}
+        
