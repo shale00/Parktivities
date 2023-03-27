@@ -1,19 +1,19 @@
 ### Parktivities
-An application to find national parks and their respectivie activies
+An application to find national parks and their respective activities
 
 ### Description
-Parktivies application shows particular park information. so if user wants to plan a trip then its easy to see which park has which activites. In this application user can see particular park names and information from selected state.we build this application using HTML, CSS, Javascript, jquery , bulma framework and two server side api's so through this application we can increase knowledge in froend development.
+The Parktivies application shows general information about a National park. If a user wants to plan a trip then it;s easy to see which park has which activites. In this application the user can see a particular park's name and information. we built this application using HTML, CSS, Javascript, jquery, the bulma css framework and two server side api's the main purpose of this project was to improve skills in frontend development.
 
 ### Table of Contents
 ## Installation
 N/A
 
 ## Usage
-In parktivities application user can see particular park information through state name or activity.so first user have to select particular state or activity from drop down.If user select particular state then user can see all park names for selected state and if user serach by activity then user see all park names which have that particular activity. then user click on particular park name then park information like Park name, image of that park, description, activities and location will appears.In previous serach history user can see all park names which user previously search. so if user want to see previously seleted park information again then just user have to click on park name listed on national park search history list.we also use local storage for persistant data so if user refresh page then also user can get previosuly selected park names in history list. 
+In the parktivities application a user can find park information through state name or activity.  First the user has to select a state or activity from their respective drop down. If the user selects a state then the user can see all park names for that state and if the user searchs by activity then the user will see all parks which have that particular activity. Then the user can click on a park name for park information like, an image of that park, description, activities and location. The user can see all park names which user previously viewed. so if a user wants to see previously seleted park information again then the user just has to click on a park name listed on national park search history list. We also use local storage for persistant data on the user's browsing history.
 
 1. The URL of the Parktivities functional, deployed application - 
 2. The URL of the GitHub repository -
-3. Scrrenshots of the Parktivities application.
+3. Screenshots of the Parktivities application.
 
 ![Main page for state serach](Assets/Images/first%20page.png)
 ![state select](Assets/Images/select%20state.png)
