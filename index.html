@@ -27,6 +27,15 @@
 
     <!-- body - search and information related to search-->
     <main class="columns container is-fluid is-centered">
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <div class="box has-text-centered has-background-grey-lighter">
+                <p class="has-text-weight-bold">Please make a selection!</p>
+              </div>
+            </div>
+          </div>
         <div id="main-display" class="column is-8 box">
             <!-- selection box for state and activities search-->
             <div id="selection-box" class="block is-mobile is-centered">
@@ -107,7 +116,7 @@
                             <option value="WY">Wyoming</option>
                         </select>
                         <div class="p-2">
-                            <button id="stateSearchBtn" class="button is-success p-4">Search</button>
+                            <button id="stateSearchBtn" class="button is-success p-4 js-modal-trigger">Search</button>
                         </div>
                     </div>
                     <!-- Dropdown menu for activity and its value -->
@@ -138,7 +147,7 @@
                             <option value="Wildlife Watching">Wildlife Watching</option>
                         </select>
                         <div class="p-2">
-                            <button id="actSearchBtn" class="button is-success p-4">Search</button>
+                            <button id="actSearchBtn" class="button is-success p-4 js-modal-trigger">Search</button>
                         </div>
                     </div>
                 </div>
