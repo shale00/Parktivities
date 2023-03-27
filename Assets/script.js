@@ -43,7 +43,7 @@ $('#stateSearchBtn').click(function () {
         var newList = $('<div class="panel" style="max-height: 450px; overflow-y: scroll";></div>');
         data.data.forEach(function (park) {
           const parkLink = $(`<a class="panel-block" data-parkcode=${park.parkCode}></a>`);
-          const icon = $('<span class="panel-icon"><i class="fad fa-trees" aria-hidden="true"></i></span>');
+          const icon = $('<span class="panel-icon"><i class="fas fa-tree" aria-hidden="true"></i></span>');
           const parkName = $(`<span>${park.fullName}</span>`);
           parkLink.append(icon, parkName);
           newList.append(parkLink);
@@ -89,7 +89,7 @@ $('#actSearchBtn').click(function () {
           if (activity.name === selectedActivity) {
             activity.parks.forEach(function (park) {
               const parkLink = $(`<a class="panel-block" data-parkcode=${park.parkCode}></a>`);
-              const icon = $(`<span class="panel-icon"><i class="fad fa-trees" aria-hidden="true"></i></span>`);
+              const icon = $(`<span class="panel-icon"><i class="fas fa-tree" aria-hidden="true"></i></span>`);
               const parkName = $(`<span>${park.fullName}</span>`);
               parkLink.append(icon, parkName);
               newList.append(parkLink);
