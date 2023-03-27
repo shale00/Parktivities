@@ -1,23 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.js" 
-    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
-    crossorigin="anonymous">
-    </script>
+    <!-- font-awesome file link for fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- jquery file link -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <!-- style.css -->
+    <link rel="stylesheet" href="./Assets/style.css">
+    <!-- bulma css file link-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>Parktivities</title>
 </head>
-<body>
-    
 
+<body style="background-color: #659dbd;">
+  <!-- Header -  image and Name of project-->
+    <header id="header" class="hero box">
+        <div class="hero-body">
+            <p id="title" class="title is-2 has-text-centered"> Parktivities </p>
+        </div>
+    </header>
 
+    <!-- body - search and information related to search-->
+    <main class="columns container is-fluid is-centered">
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <div class="box has-text-centered has-background-grey-lighter">
+                <p class="has-text-weight-bold">Please make a selection!</p>
+              </div>
+            </div>
+          </div>
+        <div id="main-display" class="column is-8 box">
+            <!-- selection box for state and activities search-->
+            <div id="selection-box" class="block is-mobile is-centered">
+                <!-- toggle tabs for state and activities search-->
+                <div class="tabs is-toggle is-boxed is-normal mb-0 is-centered">
+                    <ul>
+                        <li id="stateTab" class="is-active">
+                            <a id="stateBtn" class="has-background-grey-lighter has-text-success-dark">
+                                <span class="icon"><i class="fas fa-flag-usa"></i></span>
+                                <span>States</span>
+                            </a>
+                        </li>
+                        <li id="actTab">
+                            <a id="actBtn" class="has-background-grey-lighter has-text-success-dark">
+                                <span class="icon"><i class="fas fa-hiking"></i></span>
+                                <span>Activities</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
+                <!-- display dropdown menu list-->
+                <div id="search-container" class="column box is-half is-offset-one-quarter has-text-centered p-6"
+                    style="height: 10em; background-color: #659dbd;">
+                    <!-- Dropdown menu for state with state value-->
+                    <div id="state-search" class="select">
+                        <select name="user-select-state" id="user-select-state" class="select is-normal is-hovered">
+                            <option value="Select a State">Select a State</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Deleware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Navada</option>
+                            <option value="NH">New Hamshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virgina</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virgina</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                        <div class="p-2">
+                            <button id="stateSearchBtn" class="button is-success p-4 js-modal-trigger">Search</button>
+                        </div>
+                    </div>
+                    <!-- Dropdown menu for activity and its value -->
+                    <div id="activity-search" style="display: none" class="select">
+                        <select name="user-select-activity" id="user-select-activity"
+                            class="select is-normal is-hovered">
+                            <option value="Select an Activity">Select an Activity</option>
+                            <option value="Arts and Culture">Arts and Culture</option>
+                            <option value="Astronomy">Astronomy</option>
+                            <option value="Biking">Biking</option>
+                            <option value="Boating">Boating</option>
+                            <option value="Camping">Camping</option>
+                            <option value="Climbing">Climbing</option>
+                            <option value="Fishing">Fishing</option>
+                            <option value="Food">Food</option>
+                            <option value="Guided Tours">Guided Tours</option>
+                            <option value="Hands-On">Hands-On</option>
+                            <option value="Hiking">Hiking</option>
+                            <option value="Hunting and Gathering">Hunting and Gathering</option>
+                            <option value="Living History">Living History</option>
+                            <option value="Museum Exhibits">Museum Exhibits</option>
+                            <option value="Paddling">Paddling</option>
+                            <option value="Park Film">Park Film</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Skiing">Skiing</option>
+                            <option value="Snowshoeing">Snowshoeing</option>
+                            <option value="Swimming">Swimming</option>
+                            <option value="Wildlife Watching">Wildlife Watching</option>
+                        </select>
+                        <div class="p-2">
+                            <button id="actSearchBtn" class="button is-success p-4 js-modal-trigger">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+ 
+            <div id="instructions" style="display: block; background-color: #659dbd" class="pt-2 column box is-half is-offset-one-quarter">
+                <!-- Paragraph tag for display information how parktivities applicaiton works-->       
+                <p class="has-text-left has-text-weight-semibold ">To find a park and its relevant information, first select either the State or Activities tab to show the respective drop-down menu. 
+                    Select an item from one of the drop-down menu's and then click the search button to generate a list of parks (or sites) relative to your selection. Click on the park you are interested in to display 
+                    an image, short description, and a list of activities available at the park, as well as the address of the location. Each park you visit will be stored in park history so you can re-visit it later.</p>
+            </div>
+            
+            <div id="search-results" style="display: none;" class="container">
+                <p class="panel-heading is-italic">Search Results</p>
+                <!-- Park List will display here -->
+            </div>
+
+            <!-- display park information-->
+            <div id="park-info" style="display:none ;" class="panel">
+            </div>
+
+            <!-- display flag -->
+            <div id="park-presentation" style="display: none">
+                <p class="panel-heading is-italic title">Local Flag</p>
+                <div id="image-api2">
+                    <img id="flagpic" src="" alt="">
+                </div>
+                <div id="park-activities">
+                   <ul id="park-act-list"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- display Previously search park names and clear button -->
+        <aside id="right-side" class="column">
+           <div id="local-storage-container" class="list">
+                <p class="panel-heading is-italic has-text-centered">National Park Search History</p>
+                <div id="input-box" style="padding-bottom: 290px; background-color: white;" class="img">
+                    <div id="search-history-container" class="row m-0"></div>
+                </div>
+            </div>
+            <div id="clear-history">
+                <button class="button is-success is-fullwidth" id="btn-clear" type="reset">Clear History</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- link to script.js file-->
     <script src="./Assets/script.js"></script>
 </body>
 </html>
