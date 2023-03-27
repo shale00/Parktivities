@@ -455,6 +455,7 @@ $("body").on("click", "a.past-search", function () {
 // loadSearchHistory() function call 
 loadSearchHistory();
 
+//Close modal listeners and function
 (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
   const $target = $close.closest('.modal');
 
