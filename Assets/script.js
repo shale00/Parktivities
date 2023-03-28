@@ -5,7 +5,6 @@ var actSearch = $('#activity-search');
 //tab funactions
 $('#stateTab').click(function (event) {
   event.preventDefault();
-  console.log('state');
   stateSearch.attr('style', 'display: ;');
   actSearch.attr('style', 'display: none;');
   $('#actTab').removeClass('is-active');
@@ -14,7 +13,6 @@ $('#stateTab').click(function (event) {
 
 $('#actBtn').click(function (event) {
   event.preventDefault();
-  console.log('act');
   stateSearch.attr('style', 'display: none;');
   actSearch.attr('style', 'display: ;');
   $('#stateTab').removeClass('is-active');
@@ -30,8 +28,6 @@ $('#stateSearchBtn').click(function () {
   if (selectedState !== 'Select a State') {
     $('#search-results').attr('style', 'display: ;');
     $('#instructions').attr('style', 'display: none;');
-    console.log('display results');
-    console.log(selectedState);
     fetch(queryURL1).then(function (response) {
       if (!response.ok) {
         throw new Error(response.statusText);
@@ -68,8 +64,7 @@ $('#actSearchBtn').click(function () {
   if (selectedActivity !== 'Select an Activity') {
     $('#search-results').attr('style', 'display: ;');
     $('#instructions').attr('style', 'display: none;');
-    console.log('display results');
-    console.log(selectedActivity);
+    
     fetch(queryURL2).then(function (response) {
       if (!response.ok) {
         throw new Error(response.statusText);
@@ -77,11 +72,7 @@ $('#actSearchBtn').click(function () {
       return response.json();
     })
       .then(function (data) {
-        console.log(data);
-        console.log(typeof data);
-        console.log(data.data[0].parks[0].fullName);
-        console.log(data.data[0].parks[0].parkCode);
-
+        
         //create new list
         var newList = $('<div class="panel" style=" max-height: 450px; overflow-y: scroll;"></div>');
 
@@ -113,7 +104,6 @@ $('#actSearchBtn').click(function () {
 // display park information
 $("body").on("click", "a.panel-block", function () {
   var selectedParkCode = $(this).data("parkcode");
-  console.log("Selected park code : " + selectedParkCode);
   var keyAPI1 = 'kKdZBz5WfXYXbVr9X3e2Y6bYqadiMvS9mT17Qasp'
   var parkInfoUrl = 'https://developer.nps.gov/api/v1/parks?parkcode=' + selectedParkCode + '&limit=10&api_key=' + keyAPI1;
   if (selectedParkCode !== '') {
@@ -311,8 +301,6 @@ $("body").on("click", "a.panel-block", function () {
         }
 
         //Sets up URl for request
-        console.log(statecode);
-        console.log(flagof);
         var url = "https://en.wikipedia.org/w/api.php";
         var params = {
           action: "query",
@@ -324,40 +312,26 @@ $("body").on("click", "a.panel-block", function () {
 
         url = url + "?origin=*";
         Object.keys(params).forEach(function (key) { url += "&" + key + "=" + params[key]; });
-
-
-        console.log("start");
-
-        async function geturl() {
+          async function geturl() {
           response = await fetch(url);
           wikidata = await response.json();
 
           dataset = JSON.parse(JSON.stringify(wikidata));
-          console.log(dataset);
           //console.log(Object.keys(dataset.query.pages));
           key = Object.keys(dataset.query.pages);
           //Converts JSON info to get an array with the image url
           imgurl = Object.values(dataset.query.pages[key].imageinfo[0].url);
-          console.log("Check");
           //converts Image URL from array to string
-          console.log(imgurl.join(""));
           imgurl = imgurl.join("");
           document.getElementById("park-presentation").style.display = "block";
           document.getElementById("flagpic").src = imgurl;
           document.getElementById("flagpic").width = "200";
           document.getElementById("flagpic").height = "150";
         };
-
         geturl();
-
-
-
-
-
       });
   } else { return };
 });
-
 
 var savedSearches = [];
 // make list of previously searched parkNames
@@ -365,7 +339,6 @@ var searchHistoryList = function (parkInfo)
 {
   parkName = parkInfo.fullName;
   parkCode = parkInfo.parkCode;
-  console.log(parkCode);
   $('.past-search:contains("' + parkName + '")').remove();
   // create entry with city name
   var searchHistoryEntry = $(`<a class="past-search panel-block" data-parkcode=${parkCode} href="#">${parkName}</a>`);
@@ -400,7 +373,6 @@ var loadSearchHistory = function () {
     return false;
   }
   // turn saved search history string into array
-  console.log(savedSearchHistory);
   // go through savedSearchHistory array and make entry for each item in the list
   for (var i = 0; i < savedSearchHistory.length; i++) {
     searchHistoryList(savedSearchHistory[i]);
@@ -416,7 +388,6 @@ $("#btn-clear").on("click", function () {
 // when click on park name in previous search history list again park information will display.
 $("body").on("click", "a.past-search", function () {
   var selectedParkCode = $(this).data("parkcode");
-  console.log("Selected park code : " + selectedParkCode);
   // api key and url to fetch park information
   var keyAPI1 = 'kKdZBz5WfXYXbVr9X3e2Y6bYqadiMvS9mT17Qasp'
   var parkInfoUrl = 'https://developer.nps.gov/api/v1/parks?parkcode=' +

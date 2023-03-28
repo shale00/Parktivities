@@ -11,8 +11,8 @@ N/A
 ## Usage
 In the Parktivities application the user has two options on how they can search for a national park (or site): via State or Activity. The user can click on either the State or Activity tab and make a selection from either respective dropdown. Once a selection is made and the user clicks the 'search' button, a list of search results will display below the search box. The user can then scroll through the results (if applicable) and click on a park to view a picture from the park or site, a short description of the park or site, a list of activities available to do at the park or site, and the address of the location. The second API will display the state flag the park is located in. If the park or site is in multiple states, the flag displayed will the the U.S. flag. When a user clicks on a park to view it's information, that park is saved in localStorage so that the user can reference it at a later time (after leaving and then returning to the app). Clicking the 'clear history' button will remove the list of parks visited.
 
-1. The URL of the Parktivities functional, deployed application - https://shale00.github.io/Parktivities/
-2. The URL of the GitHub repository - https://github.com/shale00/Parktivities
+1. The URL of the Parktivities functional, deployed application - https://avanijadeja.github.io/Parktivities/
+2. The URL of the GitHub repository - https://github.com/avanijadeja/Parktivities
 3. Screenshots of the Parktivities application:
 
 ![Main page for state search](Assets/Images/first%20page.png)
