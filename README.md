@@ -28,7 +28,7 @@ In the Parktivities application the user has two options on how they can search 
 
 ## Credits
 The Parktivities application was made with javascript, css and server side api as below.
-1. Bulma css frmaework - https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css
+1. Bulma css framework - https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css
 2. For font style - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css
 3. jQuery - https://code.jquery.com/jquery-3.6.4.js
 4. Server side API's:
