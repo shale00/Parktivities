@@ -10,14 +10,14 @@
     <!-- jquery file link -->
     <script src="https://code.jquery.com/jquery-3.6.4.js"
         integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <!-- style.css -->
+        <!-- bulma css file link-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <!-- style.css -->
     <link rel="stylesheet" href="./Assets/style.css">
-    <!-- bulma css file link-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>Parktivities</title>
 </head>
 
-<body style="background-color: #659dbd;">
+<body>
   <!-- Header -  image and Name of project-->
     <header id="header" class="hero box">
         <div class="hero-body">
@@ -43,13 +43,13 @@
                 <div class="tabs is-toggle is-boxed is-normal mb-0 is-centered">
                     <ul>
                         <li id="stateTab" class="is-active">
-                            <a id="stateBtn" class="has-background-grey-lighter has-text-success-dark">
+                            <a id="stateBtn" class="has-text-weight-bold">
                                 <span class="icon"><i class="fas fa-flag-usa"></i></span>
                                 <span>States</span>
                             </a>
                         </li>
                         <li id="actTab">
-                            <a id="actBtn" class="has-background-grey-lighter has-text-success-dark">
+                            <a id="actBtn" class="has-text-weight-bold">
                                 <span class="icon"><i class="fas fa-hiking"></i></span>
                                 <span>Activities</span>
                             </a>
@@ -116,7 +116,7 @@
                             <option value="WY">Wyoming</option>
                         </select>
                         <div class="p-2">
-                            <button id="stateSearchBtn" class="button is-success p-4 js-modal-trigger">Search</button>
+                            <button id="stateSearchBtn" class="button p-4 js-modal-trigger">Search</button>
                         </div>
                     </div>
                     <!-- Dropdown menu for activity and its value -->
@@ -147,7 +147,7 @@
                             <option value="Wildlife Watching">Wildlife Watching</option>
                         </select>
                         <div class="p-2">
-                            <button id="actSearchBtn" class="button is-success p-4 js-modal-trigger">Search</button>
+                            <button id="actSearchBtn" class="button p-4 js-modal-trigger">Search</button>
                         </div>
                     </div>
                 </div>
@@ -186,12 +186,12 @@
         <aside id="right-side" class="column">
            <div id="local-storage-container" class="list">
                 <p class="panel-heading is-italic has-text-centered">National Park Search History</p>
-                <div id="input-box" style="padding-bottom: 290px; background-color: white;" class="img">
+                <div id="input-box" style="padding-bottom: 290px; background-color: rgb(206, 206, 206);" class="img">
                     <div id="search-history-container" class="row m-0"></div>
                 </div>
             </div>
             <div id="clear-history">
-                <button class="button is-success is-fullwidth" id="btn-clear" type="reset">Clear History</button>
+                <button class="button is-fullwidth" id="btn-clear" type="reset">Clear History</button>
             </div>
         </aside>
     </main>

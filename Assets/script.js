@@ -5,7 +5,8 @@ var actSearch = $('#activity-search');
 //tab funactions
 $('#stateTab').click(function (event) {
   event.preventDefault();
-  stateSearch.attr('style', 'display: ;');
+  
+  stateSearch.attr('style', 'display: ""');
   actSearch.attr('style', 'display: none;');
   $('#actTab').removeClass('is-active');
   $('#stateTab').addClass('is-active');
@@ -13,8 +14,9 @@ $('#stateTab').click(function (event) {
 
 $('#actBtn').click(function (event) {
   event.preventDefault();
+ 
   stateSearch.attr('style', 'display: none;');
-  actSearch.attr('style', 'display: ;');
+  actSearch.attr('style', 'display: ""');
   $('#stateTab').removeClass('is-active');
   $('#actTab').addClass('is-active');
 });
@@ -28,6 +30,7 @@ $('#stateSearchBtn').click(function () {
   if (selectedState !== 'Select a State') {
     $('#search-results').attr('style', 'display: ;');
     $('#instructions').attr('style', 'display: none;');
+    
     fetch(queryURL1).then(function (response) {
       if (!response.ok) {
         throw new Error(response.statusText);
@@ -64,6 +67,7 @@ $('#actSearchBtn').click(function () {
   if (selectedActivity !== 'Select an Activity') {
     $('#search-results').attr('style', 'display: ;');
     $('#instructions').attr('style', 'display: none;');
+    
     fetch(queryURL2).then(function (response) {
       if (!response.ok) {
         throw new Error(response.statusText);
