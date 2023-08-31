@@ -12,6 +12,10 @@ In the Parktivities application the user has two options on how they can search 
 2. The URL of the GitHub repository - https://github.com/shale00/Parktivities
 3. Gif of the Parktivities application:
 
+
+https://github.com/shale00/Parktivities/assets/123425315/0ba9686e-0519-424a-b483-58eb4d875d30
+
+
 ## Credits
 The Parktivities application was made with javascript, css and server side api as below.
 1. Bulma css framework - https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css
