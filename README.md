@@ -10,18 +10,7 @@ In the Parktivities application the user has two options on how they can search 
 
 1. The URL of the Parktivities functional, deployed application - https://shale00.github.io/Parktivities/
 2. The URL of the GitHub repository - https://github.com/shale00/Parktivities
-3. Screenshots of the Parktivities application:
-
-![Main page for state search](Assets/Images/first%20page.png)
-![state select](Assets/Images/select%20state.png)
-![parknames for particular state park](Assets/Images/park%20names.png)
-![park Information](Assets/Images/park%20information.png)
-![Main page for activity search](Assets/Images/main%20page_activityserach.png)
-![select activity](Assets/Images/select%20activity.png)
-![parknames for particular activity](Assets/Images/Park%20name%20for%20particular%20activity.png)
-![search history](./Assets/Images/Screen%20Shot%202023-03-26%20at%209.13.16%20PM.png)
-![state flag](Assets/Images/state%20flag%20for%20particular%20park.png)
-![local storage](Assets/Images/local%20storage.png)
+3. Gif of the Parktivities application:
 
 ## Credits
 The Parktivities application was made with javascript, css and server side api as below.
