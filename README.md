@@ -10,7 +10,7 @@ In the Parktivities application the user has two options on how they can search 
 
 1. The URL of the Parktivities functional, deployed application - https://shale00.github.io/Parktivities/
 2. The URL of the GitHub repository - https://github.com/shale00/Parktivities
-3. Gif of the Parktivities application:
+3. Walkthrough of the Parktivities application:
 
 
 https://github.com/shale00/Parktivities/assets/123425315/0ba9686e-0519-424a-b483-58eb4d875d30
