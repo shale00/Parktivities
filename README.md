@@ -13,7 +13,7 @@ In the Parktivities application the user has two options on how they can search 
 3. Walkthrough of the Parktivities application:
 
 
-https://github.com/shale00/Parktivities/assets/123425315/0ba9686e-0519-424a-b483-58eb4d875d30
+https://github.com/shale00/Parktivities/assets/123425315/85d8037f-ba12-46af-80e3-7eade98a2f76
 
 
 ## Credits
